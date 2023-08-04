@@ -7,7 +7,7 @@ function Header() {
     <header className="header">
       <div className="contenedor barra">
         <div className="logo">
-          <Link to="/index">
+          <Link to="/">
             <img className="logo" src={Logo} alt="Imagen Logo" />
           </Link>
         </div>
