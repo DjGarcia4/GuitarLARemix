@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import toast, { Toaster } from "react-hot-toast";
 import { useOutletContext } from "@remix-run/react";
 import { ClientOnly } from "remix-utils";
 import Styles from "../styles/carrito.css";
@@ -34,6 +35,7 @@ function Carrito() {
     <ClientOnly fallback={"cargando..."}>
       {() => (
         <main className="contenedor">
+          <Toaster />
           <h1 className="heading">Carrito de Compras</h1>
           <div className="contenido">
             <div className="carrito">
@@ -53,12 +55,13 @@ function Carrito() {
                         <p className="cantidad">Cantidad: </p>
                         <select
                           id="cantidad"
-                          onChange={(e) =>
+                          onChange={(e) => {
                             actualizarGuitarra({
                               cantidad: +e.target.value,
                               id: producto.id,
-                            })
-                          }
+                            });
+                            toast.success("Cantidad Actualizada");
+                          }}
                           value={producto.cantidad}
                           className="select"
                         >
@@ -81,6 +84,7 @@ function Carrito() {
                         type="button"
                         onClick={() => {
                           eliminarGuitarra(producto.id);
+                          toast.success("Guitarra Eliminada");
                         }}
                       >
                         X

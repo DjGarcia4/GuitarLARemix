@@ -1,4 +1,5 @@
 import { useState } from "react";
+import toast, { Toaster } from "react-hot-toast";
 import { useLoaderData, useOutletContext } from "@remix-run/react";
 import { getGuitarra } from "../models/guitarras.server";
 export function meta({ data }) {
@@ -41,7 +42,7 @@ function Guitarra() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (cantidad < 1) {
-      alert("Debes seleccionar una cantidad");
+      toast.error("Debes seleccionar una cantidad");
       return;
     }
     const guitarraSeleccionada = {
@@ -52,9 +53,11 @@ function Guitarra() {
       cantidad,
     };
     agregarCarrito(guitarraSeleccionada);
+    toast.success("Guitarra Agregada al Carrito");
   };
   return (
     <div className=" guitarra">
+      <Toaster />
       <img
         className="imagen"
         src={imagen.data.attributes.url}
