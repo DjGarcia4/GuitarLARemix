@@ -14,15 +14,15 @@ import styles from "~/styles/index.css";
 import Header from "~/components/header";
 import Footer from "~/components/footer";
 
-export function meta() {
+export const meta = () => {
   return [
     {
       charset: "utf-8",
     },
     { title: "GuitarLA - Remix" },
-    { viewport: "widht=device-widht,initial-scale=1" },
+    { name: "viewport", content: "width=device-width, initial-scale=1.0" },
   ];
-}
+};
 
 export function links() {
   return [

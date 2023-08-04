@@ -9,7 +9,6 @@ import styleGuitarras from "../styles/guitarras.css";
 import stylePosts from "../styles/blog.css";
 import styleCurso from "../styles/curso.css";
 
-export function meta() {}
 export function links() {
   return [
     {
